@@ -1,0 +1,21 @@
+http-vhosts.conf - added VirtualHost
+
+<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host2.example.com
+    DocumentRoot "C:/xampp/htdocs/phpiggy/public"
+    ServerName phpiggy.local
+    ##ErrorLog "logs/dummy-host2.example.com-error.log"
+    ##CustomLog "logs/dummy-host2.example.com-access.log" common
+</VirtualHost>
+
+--------------------------------------------------------------------------------
+
+added the following to "C:\Windows\System32\drivers\etc\hosts"
+
+# XAMPP Virtual Hosts
+127.0.0.1 phpiggy.local
+
+--------------------------------------------------------------------------------
+
+http://phpiggy.local/
+
