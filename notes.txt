@@ -8,26 +8,18 @@ httpd-vhosts.conf - added VirtualHost
     ##CustomLog "logs/dummy-host2.example.com-access.log" common
 </VirtualHost>
 
---------------------------------------------------------------------------------
-
 added the following to "C:\Windows\System32\drivers\etc\hosts"
 
 # XAMPP Virtual Hosts
 127.0.0.1 phpiggy.local
 
---------------------------------------------------------------------------------
-
 http://phpiggy.local/
-
---------------------------------------------------------------------------------
 
 powershell commands:
 
 pwd
 ls
 cd
-
---------------------------------------------------------------------------------
 
 installed composer
 
@@ -40,6 +32,10 @@ edited composer.json
 to create vendror folder:
 composer dupm-autoload
 
---------------------------------------------------------------------------------
+added .htaccess file
 
+In main config file "C:\xampp\apache\conf\httpd.conf"
 
+changed AllowOverride All to AllowOverride None
+
+This disables the .htaccess file
