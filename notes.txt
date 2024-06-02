@@ -1,4 +1,4 @@
-http-vhosts.conf - added VirtualHost
+httpd-vhosts.conf - added VirtualHost
 
 <VirtualHost *:80>
     ##ServerAdmin webmaster@dummy-host2.example.com
@@ -37,6 +37,7 @@ composer init
 
 edited composer.json
 
+to create vendror folder:
 composer dupm-autoload
 
 --------------------------------------------------------------------------------
