@@ -33,6 +33,12 @@ installed composer
 
 composer --version
 
+composer init
+
+edited composer.json
+
+composer dupm-autoload
+
 --------------------------------------------------------------------------------
 
 
