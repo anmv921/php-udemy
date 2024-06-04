@@ -16,12 +16,18 @@ class TemplateEngine
         // In this case ['title' => 'Home page'] is turned
         // into a variable called $title with a value 'Home page'
         extract($data, EXTR_SKIP);
-        include "{$this->basePath}/{$template}";
+
+        include $this->resolve($template);
 
         // buffering
         ob_start();
         $output = ob_get_contents();
         ob_end_clean();
         return $output;
+    }
+
+    public function resolve(string $path)
+    {
+        return "{$this->basePath}/{$path}";
     }
 }
