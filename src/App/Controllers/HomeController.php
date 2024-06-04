@@ -19,7 +19,7 @@ class HomeController
     public function home()
     {
         echo $this->view->render(
-            "/index.php",
+            "/indexTemplate.php",
             ['title' => 'Home page']
         );
     }

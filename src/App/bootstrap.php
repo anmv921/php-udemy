@@ -10,10 +10,12 @@ use App\Controllers\AboutController;
 
 $app = new App();
 
-// HomeController::class returns the name of the class in a string with full path
+// HomeController::class returns 
+// the name of the class in a string with full path
 $app->get('/', [HomeController::class, 'home']);
+// aboutPage is the function in AboutController that points
+// to the template
 $app->get('/about', [AboutController::class, 'aboutPage']);
-
 
 //dd($app);
 
