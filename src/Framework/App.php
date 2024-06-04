@@ -12,12 +12,16 @@ class App {
     }
 
     public function run() {
-        echo "Application is running";
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $method = $_SERVER['REQUEST_METHOD'];
+        $this->router->dispatch($path, $method);
     }
 
     // Add a route with the method get associated with it
-    // Doesnt seem like a good idea but teacher said so
-    public function get(string $in_path) {
-        $this->router->add('GET', $in_path);
+    public function get(string $in_path, array $in_controller) {
+        $this->router->add('GET', $in_path, $in_controller);
     }
+    
+
+
 }

@@ -39,3 +39,5 @@ In main config file "C:\xampp\apache\conf\httpd.conf"
 changed AllowOverride All to AllowOverride None
 
 This disables the .htaccess file
+
+php.ini has an option called output_buffering=4096
