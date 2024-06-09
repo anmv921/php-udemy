@@ -14,13 +14,16 @@ class Router
 
         $path = $this->normalizePath($path);
 
+
         $arr_newRoute = [
             'path' => $path,
             'method' => strtoupper($method),
             'controller' => $controller
         ];
 
-        if (!array($arr_newRoute, $this->routes, true)) {
+
+
+        if (!in_array($arr_newRoute, $this->routes, true)) {
             $this->routes[] = $arr_newRoute;
         }
     }
