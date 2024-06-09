@@ -14,7 +14,6 @@ class Router
 
         $path = $this->normalizePath($path);
 
-
         $arr_newRoute = [
             'path' => $path,
             'method' => strtoupper($method),
