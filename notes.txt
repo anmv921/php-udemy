@@ -1,5 +1,9 @@
 httpd-vhosts.conf - added VirtualHost
 
+"C:\xampp\apache\conf\extra\httpd-vhosts.conf"
+
+see the comments there
+
 <VirtualHost *:80>
     ##ServerAdmin webmaster@dummy-host2.example.com
     DocumentRoot "C:/xampp/htdocs/phpiggy/public"
@@ -15,11 +19,7 @@ added the following to "C:\Windows\System32\drivers\etc\hosts"
 
 http://phpiggy.local/
 
-powershell commands:
-
-pwd
-ls
-cd
+--------------------
 
 installed composer
 
@@ -32,6 +32,8 @@ edited composer.json
 to create vendror folder:
 composer dupm-autoload
 
+--------------------
+
 added .htaccess file
 
 In main config file "C:\xampp\apache\conf\httpd.conf"
@@ -39,5 +41,7 @@ In main config file "C:\xampp\apache\conf\httpd.conf"
 changed AllowOverride All to AllowOverride None
 
 This disables the .htaccess file
+
+--------------------
 
 php.ini has an option called output_buffering=4096
