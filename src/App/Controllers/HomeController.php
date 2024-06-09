@@ -10,7 +10,7 @@ use App\Config\Paths;
 class HomeController
 {
 
-
+    // Container.php loads the view if I understand it correctly
     public function __construct(private TemplateEngine $view)
     {
     }
@@ -18,8 +18,7 @@ class HomeController
     public function home()
     {
         echo $this->view->render(
-            "/indexTemplate.php",
-            ['title' => 'Home page']
+            "/indexTemplate.php"
         );
     }
 }

@@ -7,6 +7,7 @@ namespace Framework;
 class Router
 {
     private array $routes = [];
+    private array $middlewares = [];
 
     public function add(string $in_method, string $in_path, array $in_controller)
     {
@@ -60,5 +61,10 @@ class Router
             // to call method names if the method exists
             $controllerInstance->{$function}();
         }
+    }
+
+    public function addMiddleware(string $middleware)
+    {
+        $this->middlewares[] = $middleware;
     }
 }
