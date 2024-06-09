@@ -45,3 +45,9 @@ This disables the .htaccess file
 --------------------
 
 php.ini has an option called output_buffering=4096
+
+--------------------
+
+files need to be added to composer.json to autoload functions, for example
+ "src/App/Config/Middleware.php"
+ then composer dump-autoload

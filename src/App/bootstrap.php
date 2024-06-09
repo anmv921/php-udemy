@@ -11,10 +11,11 @@ use App\Config\Paths;
 // Well composer.php does autoloading so it works I think
 // composer dump-autoload does this too
 // my head hurts
-use function App\Config\registerRoutes;
+use function App\Config\{registerRoutes, registerMiddleware};
 
 $app = new App(Paths::SOURCE . "app/container-definitions.php");
 
 registerRoutes($app);
+registerMiddleware($app);
 
 return $app;
