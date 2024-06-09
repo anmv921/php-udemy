@@ -56,10 +56,18 @@ class Router
                 $in_container->resolve($class) :
                 new $class;
 
-            // The function is a string, 
-            // but php allows us to use strings
+            // The function is a string, but php allows us to use strings
             // to call method names if the method exists
-            $controllerInstance->{$function}();
+            $action = fn () => $controllerInstance->{$function}();
+
+            foreach ($this->middlewares as $middleware) {
+                $middlewareInstance = new $middleware;
+                $action = fn () => $middlewareInstance->process($action);
+            }
+
+            $action();
+
+            return;
         }
     }
 
