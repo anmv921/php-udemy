@@ -36,12 +36,10 @@ class Router
         return $io_path;
     }
 
-    public function dispatch(string $in_path, string $in_method)
+    public function dispatch(string $in_path, string $in_method, Container $in_container = null)
     {
         $in_path = $this->normalizePath($in_path);
         $in_method = strtoupper($in_method);
-
-        //echo $in_path . $in_method;
 
         foreach ($this->routes as $route) {
             if (
@@ -51,10 +49,11 @@ class Router
                 continue;
             }
 
-            // echo 'route found';
             [$class, $function] = $route['controller'];
 
-            $controllerInstance = new $class;
+            $controllerInstance = $in_container ?
+                $in_container->resolve($class) :
+                new $class;
 
             // The function is a string, 
             // but php allows us to use strings
