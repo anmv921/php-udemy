@@ -6,7 +6,7 @@ namespace App\Controllers;
 
 use Framework\TemplateEngine;
 use App\Config\Paths;
-use App\SErvices\ValidatorService;
+use App\Services\ValidatorService;
 
 class AuthController
 {
@@ -28,6 +28,6 @@ class AuthController
 
     public function register()
     {
-        dd($_POST);
+        $this->validatorService->validateRegister($_POST);
     }
 }
