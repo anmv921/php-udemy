@@ -14,7 +14,7 @@ class AuthController
     ) {
     }
 
-    public function registerPage()
+    public function registerView()
     {
         $this->registerView->render(
             "/registerTemplate.php",
@@ -22,5 +22,10 @@ class AuthController
                 'title' => 'Register'
             ]
         );
+    }
+
+    public function register()
+    {
+        dd($_POST);
     }
 }
