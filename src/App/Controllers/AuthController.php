@@ -6,11 +6,13 @@ namespace App\Controllers;
 
 use Framework\TemplateEngine;
 use App\Config\Paths;
+use App\SErvices\ValidatorService;
 
 class AuthController
 {
     public function __construct(
-        private TemplateEngine $registerView
+        private TemplateEngine $registerView,
+        private ValidatorService $validatorService
     ) {
     }
 
