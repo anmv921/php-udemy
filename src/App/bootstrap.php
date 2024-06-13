@@ -7,10 +7,9 @@ require __DIR__ . "/../../vendor/autoload.php";
 use Framework\App;
 use App\Config\Paths;
 
-// Wait isnt registerRoutes inside Routes.php?
-// Well composer.php does autoloading so it works I think
-// composer dump-autoload does this too
-// my head hurts
+// registerRoutes is inside Routes.php
+// Composer.php does autoloading of functions
+// need to run composer dump-autoload when adding autoload
 use function App\Config\{registerRoutes, registerMiddleware};
 
 $app = new App(Paths::SOURCE . "app/container-definitions.php");
