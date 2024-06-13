@@ -8,7 +8,7 @@ use Framework\App;
 use App\Controllers\{
     HomeController,
     AboutController,
-    RegisterController
+    AuthController
 };
 
 function registerRoutes(App $app)
@@ -21,5 +21,5 @@ function registerRoutes(App $app)
 
     $app->get('/', [HomeController::class, 'home']);
     $app->get('/about', [AboutController::class, 'aboutPage']);
-    $app->get('/register', [RegisterController::class, 'registerPage']);
+    $app->get('/register', [AuthController::class, 'registerPage']);
 }
