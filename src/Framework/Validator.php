@@ -6,6 +6,7 @@ namespace Framework;
 
 use Framework\Contracts\RuleInterface;
 
+
 class Validator
 {
 
