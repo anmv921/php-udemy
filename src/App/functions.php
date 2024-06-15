@@ -18,3 +18,13 @@ function e(mixed $value): string
     // in order to avoid script injection, for example
     return htmlspecialchars((string) $value);
 }
+
+function redirectTo(string $path)
+{
+    header("Location: {$path}");
+
+    // 302 Found
+    http_response_code(302);
+
+    exit;
+}
