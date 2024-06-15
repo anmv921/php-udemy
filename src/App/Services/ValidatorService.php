@@ -24,7 +24,7 @@ class ValidatorService
         $this->validator->validate(
             $formData,
             [
-                'email' => ['required '],
+                'email' => ['required'],
                 'age' => ['required'],
                 'country' => ['required'],
                 'socialMediaURL' => ['required'],

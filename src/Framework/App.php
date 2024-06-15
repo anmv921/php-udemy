@@ -29,14 +29,14 @@ class App
     }
 
     // Add a route with the method get associated with it
-    public function get(string $in_path, array $in_controller)
+    public function get(string $path, array $controller)
     {
-        $this->router->add('GET', $in_path, $in_controller);
+        $this->router->add('GET', $path, $controller);
     }
 
-    public function post(string $in_path, array $in_controller)
+    public function post(string $path, array $controller)
     {
-        $this->router->add('POST', $in_path, $in_controller);
+        $this->router->add('POST', $path, $controller);
     }
 
     public function addMiddleware(string $middleware)
