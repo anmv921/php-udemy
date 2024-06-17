@@ -15,9 +15,6 @@ class SessionMiddleware implements MiddlewareInterface
             throw new SessionException("Session already active.");
         }
 
-        ob_end_clean();
-        echo "hello";
-
         if (headers_sent($filename, $line)) {
             throw new SessionException(
                 "Headers already sent. Consider enabling output buffering. Data outputted from {$filename} - Line: {$line}"
