@@ -18,12 +18,7 @@ class AuthController
 
     public function registerView()
     {
-        $this->registerView->render(
-            "/registerTemplate.php",
-            [
-                'title' => 'Register'
-            ]
-        );
+        $this->registerView->render("/registerTemplate.php", ['title' => 'Register']);
     }
 
     public function register()
