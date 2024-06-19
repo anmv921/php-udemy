@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Validator;
-use Framework\Rules\{RequiredRule};
+use Framework\Rules\{RequiredRule, EmailRule};
 
 // needs to be imported in container-definitions.php
 class ValidatorService
@@ -17,6 +17,8 @@ class ValidatorService
         $this->validator = new Validator();
 
         $this->validator->add('required', new RequiredRule());
+
+        $this->validator->add('email', new EmailRule());
     }
 
     public function validateRegister(array $formData)
@@ -24,7 +26,7 @@ class ValidatorService
         $this->validator->validate(
             $formData,
             [
-                'email' => ['required'],
+                'email' => ['required', 'email'],
                 'age' => ['required'],
                 'country' => ['required'],
                 'socialMediaURL' => ['required'],
