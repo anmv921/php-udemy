@@ -5,7 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Validator;
-use Framework\Rules\{RequiredRule, EmailRule};
+use Framework\Rules\{
+    RequiredRule,
+    EmailRule,
+    MinRule,
+    InRule,
+    UrlRule
+};
 
 // needs to be imported in container-definitions.php
 class ValidatorService
@@ -15,10 +21,11 @@ class ValidatorService
     public function __construct()
     {
         $this->validator = new Validator();
-
         $this->validator->add('required', new RequiredRule());
-
         $this->validator->add('email', new EmailRule());
+        $this->validator->add('min', new MinRule());
+        $this->validator->add('in', new InRule());
+        $this->validator->add('url', new UrlRule());
     }
 
     public function validateRegister(array $formData)
@@ -27,9 +34,9 @@ class ValidatorService
             $formData,
             [
                 'email' => ['required', 'email'],
-                'age' => ['required'],
-                'country' => ['required'],
-                'socialMediaURL' => ['required'],
+                'age' => ['required', 'min:18'],
+                'country' => ['required', 'in:USA,Canada,Mexico'],
+                'socialMediaURL' => ['required', 'url'],
                 'password' => ['required'],
                 'confirmPassword' => ['required'],
                 'tos' => ['required']
