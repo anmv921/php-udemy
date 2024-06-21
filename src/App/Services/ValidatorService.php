@@ -10,7 +10,8 @@ use Framework\Rules\{
     EmailRule,
     MinRule,
     InRule,
-    UrlRule
+    UrlRule,
+    MatchRule
 };
 
 // needs to be imported in container-definitions.php
@@ -26,6 +27,7 @@ class ValidatorService
         $this->validator->add('min', new MinRule());
         $this->validator->add('in', new InRule());
         $this->validator->add('url', new UrlRule());
+        $this->validator->add('match', new MatchRule());
     }
 
     public function validateRegister(array $formData)
@@ -38,7 +40,7 @@ class ValidatorService
                 'country' => ['required', 'in:USA,Canada,Mexico'],
                 'socialMediaURL' => ['required', 'url'],
                 'password' => ['required'],
-                'confirmPassword' => ['required'],
+                'confirmPassword' => ['required', "match:password"],
                 'tos' => ['required']
             ]
         );
