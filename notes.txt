@@ -71,4 +71,12 @@ files need to be added to composer.json to autoload functions, for example
  or 
  http://phpiggy.local
 
- the starting point for the app is public/index.php
+ the starting point for the app is public/index.php and bootstrap
+
+ --------------------------------------------------
+
+ in composer.json added scripts
+
+ we can run this script with:
+
+ composer run-script phpiggy

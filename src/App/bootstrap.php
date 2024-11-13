@@ -13,10 +13,6 @@ use App\Config\Paths;
 // need to run composer dump-autoload when adding autoload
 use function App\Config\{registerRoutes, registerMiddleware};
 
-// use App\Controllers\{AboutController};
-// $aboutController = new AboutController();
-// $app->get('/about', [AboutController::class, 'about']);
-
 $app = new App(Paths::SOURCE . "app/container-definitions.php");
 
 registerRoutes($app);

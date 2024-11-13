@@ -33,7 +33,7 @@ class TemplateEngine
 
     public function resolve(string $path)
     {
-        // die("{$this->basePath}/{$path}");
+    
         return "{$this->basePath}/{$path}";
 
     }

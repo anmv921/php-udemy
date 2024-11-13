@@ -1,6 +1,6 @@
 <?php
 
-// *******************************************
+echo "hi\n";
 
 $driver = 'mysql';
 
@@ -31,8 +31,6 @@ try {
     
 var_dump($db);
 
-echo "<br>";
-
 $query = $db->prepare("SELECT * FROM products");
 
 $query->execute();
@@ -40,13 +38,3 @@ $query->execute();
 $result = $query->fetchAll();
 
 print_r($result);
-
-die();
-
-// *******************************************
-
-include __DIR__ . "/../src/App/functions.php";
-
-$app = include __DIR__ . '/../src/App/bootstrap.php';
-
-$app->run();
