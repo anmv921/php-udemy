@@ -9,13 +9,16 @@
 
     <hr />
 
-    <!-- Escaping Data -->
     <p>
-        Escaping Data:
-        <?php
-        echo e($dangerousData);
-        ?>
+        Olá
     </p>
+
+    <!-- Escaping Data -->
+    <!-- <p> -->
+        <!-- Escaping Data: -->
+
+        
+    <!-- </p> -->
 </section>
 <!-- End Main Content Area -->
 

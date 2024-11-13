@@ -14,6 +14,8 @@ class TemplateEngine
 
     public function render(string $template, array $data = [])
     {
+
+      
         // Transforms array items into variables
         // In this case ['title' => 'Home page'] is turned
         // into a variable called $title with a value 'Home page'
@@ -31,7 +33,9 @@ class TemplateEngine
 
     public function resolve(string $path)
     {
+        // die("{$this->basePath}/{$path}");
         return "{$this->basePath}/{$path}";
+
     }
 
     public function addGlobal(string $key, mixed $value)

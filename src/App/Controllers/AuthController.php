@@ -13,8 +13,7 @@ class AuthController
     public function __construct(
         private TemplateEngine $registerView,
         private ValidatorService $validatorService
-    ) {
-    }
+    ) {}
 
     public function registerView()
     {

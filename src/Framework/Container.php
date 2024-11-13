@@ -15,12 +15,16 @@ class Container
     public function addDefinitions(array $newDefinitions)
     {
         // merge arrays, ... is the spread operator
+        // Look how fucking smart I am
+        // Whoever thought of this deserves to be shot
         $this->definitions = [...$this->definitions, ...$newDefinitions];
     }
 
     public function resolve(string $className)
     {
         $reflectionClass = new ReflectionClass($className);
+
+        // dd($reflectionClass);
 
         if (!$reflectionClass->isInstantiable()) {
             throw new ContainerException("Class {$className} is not instantiable.");

@@ -1,4 +1,8 @@
-httpd-vhosts.conf - added VirtualHost
+The project should be in folder htdocs/phpiggy
+
+----------------------------------------------
+
+httpd-vhosts.conf - added VirtualHost in file
 
 "C:\xampp\apache\conf\extra\httpd-vhosts.conf"
 
@@ -12,7 +16,7 @@ see the comments there
     ##CustomLog "logs/dummy-host2.example.com-access.log" common
 </VirtualHost>
 
-added the following to "C:\Windows\System32\drivers\etc\hosts"
+added the following to "C:\Windows\System32\drivers\etc\hosts" : 
 
 # XAMPP Virtual Hosts
 127.0.0.1 phpiggy.local
@@ -29,18 +33,25 @@ composer init
 
 edited composer.json
 
-to create vendror folder:
+to create vendor folder:
 composer dupm-autoload
+
+this folder doesn't exist by default
 
 --------------------
 
 added .htaccess file
 
-In main config file "C:\xampp\apache\conf\httpd.conf"
-
-changed AllowOverride All to AllowOverride None
-
-This disables the .htaccess file
+********************************************************
+* nononono dont touch this it breaks the routes        *
+* In main config file "C:\xampp\apache\conf\httpd.conf"*
+*                                                      *
+* changed AllowOverride All to AllowOverride None      *
+*                                                      *
+* This disables the .htaccess file                     *
+*                                                      *
+*                                                      *
+********************************************************
 
 --------------------
 
@@ -51,3 +62,13 @@ php.ini has an option called output_buffering=4096
 files need to be added to composer.json to autoload functions, for example
  "src/App/Config/Middleware.php"
  then composer dump-autoload
+
+ ---------------------------
+
+ try reloading the computer a few times then it works 
+ on
+ localhost
+ or 
+ http://phpiggy.local
+
+ the starting point for the app is public/index.php
