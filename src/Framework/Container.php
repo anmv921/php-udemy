@@ -7,6 +7,7 @@ namespace Framework;
 use ReflectionClass, ReflectionNamedType;
 use Framework\Exceptions\ContainerException;
 
+// Look how fucking smart I am
 class Container
 {
     private array $definitions = [];
@@ -15,8 +16,6 @@ class Container
     public function addDefinitions(array $newDefinitions)
     {
         // merge arrays, ... is the spread operator
-        // Look how fucking smart I am
-        // Whoever thought of this deserves to be shot
         $this->definitions = [...$this->definitions, ...$newDefinitions];
     }
 
@@ -75,7 +74,7 @@ class Container
         }
 
         $factory = $this->definitions[$id];
-        $dependency = $factory();
+        $dependency = $factory($this);
 
         $this->resolved[$id] = $dependency;
 

@@ -6,13 +6,14 @@ namespace App\Controllers;
 
 use Framework\TemplateEngine;
 use App\Config\Paths;
-use App\Services\ValidatorService;
+use App\Services\{ValidatorService, UserService};
 
 class AuthController
 {
     public function __construct(
         private TemplateEngine $registerView,
-        private ValidatorService $validatorService
+        private ValidatorService $validatorService,
+        private UserService $userService
     ) {}
 
     public function registerView()
@@ -23,5 +24,11 @@ class AuthController
     public function register()
     {
         $this->validatorService->validateRegister($_POST);
+
+        $this->userService->isEmailTaken($_POST['email']);
+
+        $this->userService->insertUser($_POST);
+
+        redirectTo("/");
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Framework\{TemplateEngine, Database};
+use Framework\{TemplateEngine, Database, Container};
 use App\Config\Paths;
-use App\Services\ValidatorService;
+use App\Services\{ValidatorService, UserService};
 
 // Factory function
 // Where is my mind?
@@ -20,6 +20,10 @@ return [
                 "charset" => $_ENV["DB_CHARSET"]
         ],
         in_username: $_ENV["DB_USER"],
-        in_password: $_ENV["DB_PASS"]
-    )
+        in_password: $_ENV["DB_PASS"]),
+    UserService::class => function(Container $container) {
+        $db = $container->get(Database::class);
+
+        return new UserService($db);
+    }
 ];

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Framework;
 
-use PDO, PDOException;
+use PDO, PDOException, PDOStatement;
 
 class Database 
 {
     private PDO $connection;
+    private PDOStatement $stmt;
 
     public function __construct(string $in_driver, array $in_config, string $in_username, string $in_password )
     {
@@ -33,8 +34,19 @@ class Database
     } // End function __construct
 
 
-    public function query(string $query) {
-        $this->connection->query($query);
+    public function query(string $query, array $params = []) : Database {
+
+        $this->stmt = $this->connection->prepare($query);
+
+        $this->stmt->execute($params);
+
+        return $this;
+
     } // End function query
+
+    // Look how fucking smart I am
+    public function count() {
+        return $this->stmt->fetchColumn();
+    }
 
 } // End class
