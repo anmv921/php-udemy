@@ -7,11 +7,15 @@ require __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
 use App\Config\Paths;
+use Dotenv\Dotenv;
 
 // registerRoutes is inside Routes.php
 // Composer.php does autoloading of functions
 // need to run composer dump-autoload when adding autoload
 use function App\Config\{registerRoutes, registerMiddleware};
+
+$dotenv = Dotenv::createImmutable(Paths::ROOT);
+$dotenv->load();
 
 $app = new App(Paths::SOURCE . "app/container-definitions.php");
 

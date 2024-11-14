@@ -89,3 +89,15 @@ this ini has a line which says
 extension=pdo_mysql
 line which is commented, starting with a ;
 remove this ";" to enable mysql driver
+
+---------------------------------------
+
+added the following package:
+
+composer require vlucas/phpdotenv
+
+---------------------------------------
+
+composer install
+
+creates the vendor folder
