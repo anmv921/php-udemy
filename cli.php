@@ -1,40 +1,26 @@
 <?php
 
-echo "hi\n";
+include __DIR__ . '/src/Framework/Database.php';
 
-$driver = 'mysql';
+use Framework\Database;
 
-$config = http_build_query(data: [
-    'host' => 'localhost',
-    'port' => 3306,
-    'dbname' => 'phpiggy',
-    "charset" => 'utf8mb4'
-], arg_separator: ';');
+$db = new Database(
+    in_driver: 'mysql', 
+    in_config: [
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'phpiggy',
+            "charset" => 'utf8mb4'
+    ],
+    in_username: 'root',
+    in_password: ''
+);
 
-$dsn = "{$driver}:{$config}";
+echo "Connected to database";
 
-$username = "root";
-$password = "";
-
-$db = null;
-
-try {
-
-    $db = new PDO(dsn: $dsn, username: $username, password: $password,
-    options: [
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_STRINGIFY_FETCHES => false
-    ]);
-} catch(Exception $e) {
-    echo $e;
+if ($db) {
+    $query = $db->connection->prepare("SELECT * FROM products");
+    $query->execute();
+    $result = $query->fetchAll();
+    print_r($result);
 }
-    
-var_dump($db);
-
-$query = $db->prepare("SELECT * FROM products");
-
-$query->execute();
-
-$result = $query->fetchAll();
-
-print_r($result);

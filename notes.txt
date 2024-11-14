@@ -73,10 +73,19 @@ files need to be added to composer.json to autoload functions, for example
 
  the starting point for the app is public/index.php and bootstrap
 
- --------------------------------------------------
+--------------------------------------------------
 
- in composer.json added scripts
+in composer.json added scripts
 
- we can run this script with:
+we can run this script with:
 
- composer run-script phpiggy
+composer run-script phpiggy
+
+***
+strangely enough php in the command line is different from xampp php
+run: where php
+this folder has a php.ini
+this ini has a line which says 
+extension=pdo_mysql
+line which is commented, starting with a ;
+remove this ";" to enable mysql driver
