@@ -38,8 +38,12 @@ class UserService
                 "social_media_url" => $in_post_data["socialMediaURL"]
             ]
         );
-    } // End function create
 
+        session_regenerate_id();
+
+        $_SESSION["user"] = $this->db->id();
+        
+    } // End function create
 
     public function login(array $postData) {
         $user = $this->db->query("SELECT * FROM users WHERE email = :email",
@@ -60,5 +64,11 @@ class UserService
         $_SESSION["user"] = $user["id"];
 
     } // End function login
+
+    public function logout() {
+        unset($_SESSION["user"]);
+
+        session_regenerate_id();
+    }
 
 } // End class
