@@ -44,9 +44,13 @@ class Database
 
     } // End function query
 
-    // Look how fucking smart I am
+
     public function count() {
         return $this->stmt->fetchColumn();
+    }
+
+    public function find() {
+        return $this->stmt->fetch();
     }
 
 } // End class
