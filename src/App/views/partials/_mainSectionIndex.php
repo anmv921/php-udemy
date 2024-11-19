@@ -160,6 +160,7 @@
         </div>
         <!-- Next Page Link -->
         <div class="-mt-px flex w-0 flex-1 justify-end">
+            <?php if($currentPage < $lastPage) : ?>
             <a href="/?<?= $nextPageQuery ?>" 
             class="inline-flex items-center border-t-2 border-transparent 
             pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
@@ -171,6 +172,7 @@
                     clip-rule="evenodd" />
                 </svg>
             </a>
+            <?php endif; ?>
         </div>
     </nav>
 </section>
