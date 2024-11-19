@@ -12,17 +12,15 @@ class MinRule implements RuleInterface
     public function validate(array $data, string $field, array $params): bool
     {
         if (empty($params[0])) {
-            throw new InvalidArgumentException("Minimum length not specified");
+            throw new InvalidArgumentException("Minimum value not specified");
         }
 
-
-
-        $length = (int) $params[0];
-        return $data[$field] >= $length;
+        $minNumber = (int) $params[0];
+        return $data[$field] >= $minNumber;
     }
 
     public function getMessage(array $data, string $field, array $params): string
     {
-        return "Must be at least {$params[0]}";
+        return "The number must be at least {$params[0]}";
     }
 }

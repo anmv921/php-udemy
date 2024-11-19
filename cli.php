@@ -31,29 +31,11 @@ echo "Connected to database\n";
 
 $sqlFile = file_get_contents("./database.sql");
 
-echo $sqlFile;
+echo $sqlFile . "\n";
 
 $db->query($sqlFile);
 
-echo "\nQuery database.sql executed";
+echo "Query database.sql executed\n";
 
-// try {
-//     $db->connection->beginTransaction();
-//     $db->connection->query("INSERT INTO products VALUES(99, 'Gloves')");
-//     $search = "Gloves";
-//     $query = "SELECT * FROM products WHERE name=:name";
-//     $stmt = $db->connection->prepare($query);
-//     $stmt->bindValue('name', $search, PDO::PARAM_STR);
-//     $stmt->execute();
-//     $result = $stmt->fetchAll(mode:PDO::FETCH_OBJ);
-//     print_r($result);
-//     $db->connection->commit();
-// }
-// catch (Exception $error) {
-//     if ($db->connection->inTransaction()){
-//         $db->connection->rollBack();
-//     }
-//     echo "Transaction failed";
-// }
 
 
