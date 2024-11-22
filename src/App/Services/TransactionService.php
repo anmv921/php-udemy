@@ -27,10 +27,7 @@ class TransactionService
             ]);
     } // End function create
 
-    public function getUserTransactions(
-        int $length,
-        int $offset
-    ) {
+    public function getUserTransactions( int $length, int $offset ) {
 
         $searchTerm = addcslashes($_GET['s'] ?? '', '%_');
 
@@ -60,5 +57,53 @@ class TransactionService
 
         return [$transactions, $transactionCount];
     } // End function getUserTransactions
+
+
+    public function getUserTransaction(string $id) {
+
+        return $this->db->query(
+            "SELECT *, DATE_FORMAT(date, '%Y-%m-%d') as formatted_date
+            FROM transactions 
+            WHERE id = :id AND user_id = :user_id",
+            [
+                'id' => $id,
+                'user_id' => $_SESSION["user"]
+            ]
+        )->find();
+    } // End function getUserTransaction
+
+    public function update(array $formData, int $id) {
+
+        $formattedDate = "{$formData['date']} 00:00:00";
+
+        $this->db->query(
+          "UPDATE transactions 
+          SET description = :description,
+            amount = :amount,
+            date = :date
+          WHERE id = :id 
+          AND user_id = :user_id",
+          [
+            'id' => $id,
+            'user_id' => $_SESSION["user"],
+            'amount' => $formData['amount'],
+            'date' => $formattedDate,
+            'description' => $formData['description']
+          ]);
+    } // End function update
+
+    public function delete(int $id) {
+        $this->db->query(
+            "DELETE FROM transactions
+            WHERE id = :id
+            AND user_id = :user_id",
+            [
+                "id" => $id,
+                "user_id" => $_SESSION["user"]
+            ]
+        );
+    }
+
+
 
 } // End class

@@ -13,11 +13,14 @@ class Router
     {
         $path = $this->normalizePath($path);
 
+        $regexPath = preg_replace(pattern: "#{[^/]+}#", replacement: "([^/]+)", subject: $path);
+
         $arr_new_route = [
             'path' => $path,
             'method' => strtoupper($method),
             'controller' => $controller,
-            'middlewares' => []
+            'middlewares' => [],
+            'regexPath' => $regexPath
         ];
 
         if (!in_array($arr_new_route, $this->routes, true)) {
@@ -40,15 +43,25 @@ class Router
     public function dispatch(string $path, string $method, Container $container = null)
     {
         $path = $this->normalizePath($path);
-        $method = strtoupper($method);
+        $method = strtoupper($_POST["_METHOD"] ?? $method);
 
         foreach ($this->routes as $route) {
             if (
-                !preg_match("#^{$route['path']}$#", $path) ||
+                !preg_match(pattern: "#^{$route['regexPath']}$#", subject: $path, matches: $paramValues) ||
                 $route['method'] !== $method
             ) {
                 continue;
             }
+
+            array_shift($paramValues);
+
+            preg_match_all("#{([^/]+)}#", $route['path'], $paramKeys);
+
+            $paramKeys = $paramKeys[1];
+
+            $params = array_combine($paramKeys, $paramValues);
+
+       
 
             [$class, $function] = $route['controller'];
 
@@ -58,7 +71,7 @@ class Router
 
             // The function is a string, but php allows us to use strings
             // to call method names if the method exists
-            $action = fn () => $controllerInstance->{$function}();
+            $action = fn () => $controllerInstance->{$function}($params);
 
             $allMiddleware = [];
 
