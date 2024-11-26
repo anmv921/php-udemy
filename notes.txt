@@ -101,3 +101,7 @@ composer require vlucas/phpdotenv
 composer install
 
 creates the vendor folder
+
+---------------------------------------
+
+Service files need to be registered in container-definitions.php

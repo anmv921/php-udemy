@@ -65,7 +65,7 @@ class TransactionController
 
     redirectTo('/');
     
-  }
+  } // End function delete
 
 
 

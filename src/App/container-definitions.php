@@ -7,7 +7,8 @@ use App\Config\Paths;
 use App\Services\{
     TransactionService, 
     ValidatorService, 
-    UserService};
+    UserService,
+    ReceiptService};
 
 // Factory function
 // Where is my mind?
@@ -33,5 +34,10 @@ return [
         $db = $container->get(Database::class);
 
         return new TransactionService($db);
+    },
+    ReceiptService::class => function(Container $container) {
+        $db = $container->get(Database::class);
+
+        return new ReceiptService($db);
     }
 ];
