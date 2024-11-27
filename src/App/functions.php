@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Framework\Http;
+
 // Variable dump - die
 function dd(mixed $in_value)
 {
@@ -24,7 +26,7 @@ function redirectTo(string $path)
     header("Location: {$path}");
 
     // 302 Found
-    http_response_code(302);
+    http_response_code(Http::REDIRECT_STATUS_CODE);
 
     exit;
 }
