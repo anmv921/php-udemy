@@ -104,7 +104,7 @@
                         </a>
                         <form 
                         action="/transaction/<?= e($transaction["id"]) ?>/receipt/<?= e($receipt["id"]) ?>" 
-                        method="POST">
+                        method="POST" >
 
                             <?php include $this->resolve("partials/_csrf.php"); ?>
 

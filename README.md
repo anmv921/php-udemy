@@ -1,1 +1,1 @@
-lorem ipsum dolor etc etc etc
+An app for tracking transactions and receipts
