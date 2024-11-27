@@ -43,4 +43,36 @@ class ReceiptController
 
     redirectTo("/");
   }
+
+  // ***************************************************************************
+  public function download(array $params) {
+    $transaction = $this->transactionService->getUserTransaction(
+      id: $params["transaction"]);
+
+    if (empty($transaction)) {
+      redirectTo('/');
+    }
+
+    $receipt = $this->receiptService->getReceipt(id: $params["receipt"]);
+
+    if (empty($receipt)) {
+      redirectTo('/');
+    }
+
+    if ($transaction["id"] !== $receipt["transaction_id"]) {
+      redirectTo('/');
+    }
+
+    $this->receiptService->read(receipt: $receipt);
+
+
+  }
+  // ***************************************************************************
+
+ 
+  public function delete(array $params) {
+
+  }
+
+
 }
