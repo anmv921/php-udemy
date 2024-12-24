@@ -41,3 +41,5 @@ width="400px" />
 Furthermore, the site implements an authorization and authentication system, so that the transactions are
 only visible for specific users. A registration and login are therefore required and a guard system prevents
 unauthorized operations.
+
+The file notes.txt describes the required steps to set up the project up and running.
