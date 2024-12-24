@@ -2,9 +2,9 @@ IMPORTANT:
 
 The project should be in folder htdocs/phpiggy
 
-----------------------------------------------
+--------------------------------------------------------------------------------
 
-httpd-vhosts.conf - added VirtualHost in file
+httpd-vhosts.conf - added VirtualHost in file:
 
 "C:\xampp\apache\conf\extra\httpd-vhosts.conf"
 
@@ -16,22 +16,22 @@ httpd-vhosts.conf - added VirtualHost in file
     ##CustomLog "logs/dummy-host2.example.com-access.log" common
 </VirtualHost>
 
-added the following to "C:\Windows\System32\drivers\etc\hosts" : 
+Added the following to "C:\Windows\System32\drivers\etc\hosts" : 
 
 # XAMPP Virtual Hosts
 127.0.0.1 phpiggy.local
 
-http://phpiggy.local/ is the address of the site
+http://phpiggy.local/ is the address of the site, an alias for localhost
 
---------------------
+--------------------------------------------------------------------------------
 
 added .htaccess file
 
 in httpd.conf I set every AllowOverride to All and it works, the site
 
---------------------
+--------------------------------------------------------------------------------
 
---------------------
+--------------------------------------------------------------------------------
 
 installed composer
 
@@ -46,15 +46,13 @@ composer dupm-autoload
 
 this folder doesn't exist by default
 
-php.ini has an option called output_buffering=4096
-
---------------------
+--------------------------------------------------------------------------------
 
 files need to be added to composer.json to autoload functions, for example
  "src/App/Config/Middleware.php"
  then composer dump-autoload
 
- ---------------------------
+--------------------------------------------------------------------------------
 
  try reloading the computer a few times then it works 
  on
@@ -64,7 +62,7 @@ files need to be added to composer.json to autoload functions, for example
 
  the starting point for the app is public/index.php and bootstrap
 
---------------------------------------------------
+--------------------------------------------------------------------------------
 
 in composer.json added scripts
 
@@ -81,18 +79,18 @@ extension=pdo_mysql
 line which is commented, starting with a ;
 remove this ";" to enable mysql driver
 
----------------------------------------
+--------------------------------------------------------------------------------
 
 added the following package:
 
 composer require vlucas/phpdotenv
 
----------------------------------------
+--------------------------------------------------------------------------------
 
 composer install
 
 creates the vendor folder
 
----------------------------------------
+--------------------------------------------------------------------------------
 
 Service files need to be registered in container-definitions.php
