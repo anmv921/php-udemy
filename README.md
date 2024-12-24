@@ -4,7 +4,8 @@
 
 This is a CRUD app for tracking expenses that implements the site described in the Udemy tutorial on the following page:
 
-[Complete Modern PHP Developer Course | Udemy](https://www.udemy.com/share/109g543@XJzHJ0Aen-pd1mi_PNdjRcoViTL3U4BKx61Iim_9eh-4WyQMeOp3ePtKB6wjlgDLQQ==/ "Complete Modern PHP Developer Course | Udemy")
+[Complete Modern PHP Developer Course by Luis Ramirez Jr | Udemy](https://www.udemy.com/share/109g543@XJzHJ0Aen-pd1mi_PNdjRcoViTL3U4BKx61Iim_9eh-4WyQMeOp3ePtKB6wjlgDLQQ==/ 
+"Complete Modern PHP Developer Course by Luis Ramirez Jr | Udemy")
 
 This site implements a custom framework simmilar to Laravel and follows a MVC, Model-View-Controller
 logic.
