@@ -3,3 +3,4 @@ composer.phar
 .env
 storage/uploads/*
 !storage/uploads/.gitkeep
+.vscode

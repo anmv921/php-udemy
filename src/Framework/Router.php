@@ -44,6 +44,8 @@ class Router
     public function dispatch(string $path, string $method, Container $container = null)
     {
         $path = $this->normalizePath($path);
+
+
         $method = strtoupper($_POST["_METHOD"] ?? $method);
 
         foreach ($this->routes as $route) {
@@ -61,8 +63,6 @@ class Router
             $paramKeys = $paramKeys[1];
 
             $params = array_combine($paramKeys, $paramValues);
-
-       
 
             [$class, $function] = $route['controller'];
 

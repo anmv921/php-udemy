@@ -1,3 +1,5 @@
+IMPORTANT:
+
 The project should be in folder htdocs/phpiggy
 
 ----------------------------------------------
@@ -5,8 +7,6 @@ The project should be in folder htdocs/phpiggy
 httpd-vhosts.conf - added VirtualHost in file
 
 "C:\xampp\apache\conf\extra\httpd-vhosts.conf"
-
-see the comments there
 
 <VirtualHost *:80>
     ##ServerAdmin webmaster@dummy-host2.example.com
@@ -21,7 +21,15 @@ added the following to "C:\Windows\System32\drivers\etc\hosts" :
 # XAMPP Virtual Hosts
 127.0.0.1 phpiggy.local
 
-http://phpiggy.local/
+http://phpiggy.local/ is the address of the site
+
+--------------------
+
+added .htaccess file
+
+in httpd.conf I set every AllowOverride to All and it works, the site
+
+--------------------
 
 --------------------
 
@@ -37,23 +45,6 @@ to create vendor folder:
 composer dupm-autoload
 
 this folder doesn't exist by default
-
---------------------
-
-added .htaccess file
-
-********************************************************
-* nononono dont touch this it breaks the routes        *
-* In main config file "C:\xampp\apache\conf\httpd.conf"*
-*                                                      *
-* changed AllowOverride All to AllowOverride None      *
-*                                                      *
-* This disables the .htaccess file                     *
-*                                                      *
-*                                                      *
-********************************************************
-
---------------------
 
 php.ini has an option called output_buffering=4096
 

@@ -21,7 +21,6 @@ $app = new App(Paths::SOURCE . "app/container-definitions.php");
 
 registerRoutes($app);
 
-
 registerMiddleware($app);
 
 return $app;
