@@ -11,8 +11,8 @@ logic.
 
 The model layer connects to a MySQL database that saves the created transactions.
 
-<!-- <img alt="ticket form 1" 
-src="https://github.com/anmv921/rumos-dicionario-mvc/blob/main/readme_images/home.PNG" width="750px" />  -->
+<img alt="ticket form 1" 
+src="https://github.com/anmv921/php-udemy/blob/master/readme_images/home2.png" width="750px" />
 
 The homepage is a list of transactions, displaying the ammount, the description, the receipts and the date.
 
