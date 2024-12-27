@@ -10,7 +10,12 @@ This is a CRUD app for tracking expenses that implements the site described in t
 This site implements a custom framework simmilar to Laravel and follows a MVC, Model-View-Controller
 logic.
 
-The model layer connects to a MySQL database that saves the created transactions.
+<img alt="ticket form 1" 
+src="https://github.com/anmv921/php-udemy/blob/master/readme_images/drawSQL-image-export-2024-11-27.png" 
+width="400px" />
+
+The model layer connects to a MySQL database that saves the created transactions, with the table structure as
+shown in the image above.
 
 <img alt="ticket form 1" 
 src="https://github.com/anmv921/php-udemy/blob/master/readme_images/home2.png" 
